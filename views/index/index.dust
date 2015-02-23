@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    function toggleDiv(divId) {
+         $("#"+divId).toggle("slow");
+    }
+</script>
+<div class="jumbotron">
+    <center><h2> Documentation </h2></center>
+</div>
+<hr>
+<h4>My name is Antonis Lilis and i created this application for 2nd Round Programming Task.</h4>
+<h4>It is better to run this site with Google Chrome browser. Some Internet Explorer versions dont recognize some HTML5 elements.
+<h4>Mozilla Firefox doesnt let the modal to add the new currency. I can fix it but it isnt the test scope. 
+<h4>You can <strong>test your browser HTML5 compability</strong> <a href="https://html5test.com/" ><strong>here</strong></a>. 
+<h4> You can <strong>download the source code from <a href="https://github.com/antonislilis/proctest">here</a></strong>
+<hr>
+<div class="container">
+<div id="accordion" class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. General</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>I created a custom mvc model. I know how to use Laravel and Slim frameworks but i thought it was better to do something from zero for the purposes for this test.</p>
+                <p>The app has three main pages. Index for the presentation, Currency for the Currency Converter, Dashboard for the Currencies Database Table Editing.</p>
+                <a class="btn btn-info" href="javascript:toggleDiv('themodel');"style="margin-bottom: 20px;">Show Model</a>
+                <div id="themodel" style="display:none"><img src="public/images/mvc.png" alt="mvc"/></div>
+                <p> Bootstrap.php does the root. Controller.php loads models. Database.php does the database connection, Model.php does a Database object.</p>
+                <p>In config folder we define the domain root path and database vars (host, name, user, password).</p>
+                <p>_model files have the functions who connect with the database.<p>
+                <p>In views folder i have the Page Views, the header and the footer.<p>
+                <p>In the root index.php i include all the nessecary files and i create the $app that's a Bootstrap object.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What i used?</a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <p>I used <strong>PHP 5.5, PDO for mysql, JQuery library for Javascript, HTML5, CSS3, Ajax, Dust PHP, OOP PHP, JSON, form input validation</strong>. I used Bootstrap <strong>SB-Admin Theme</strong>. For the Views i used <strong>Dust PHP</strong>. For notifications i used <strong>Gritter for JQuery</strong></p>
+                <p>In the dashboard.js i have the JS functions for the Currency and Dashboard Page. 
+                <p>I created an ajax dispatcher into public/ajax folder. 
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. Currency and Dashboard Page</a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>In the Currency page there is the converter. You choose the currencies you want to convert, you give the money value in the input area<br>
+                and then you automatically see the converted value</p>.
+                <p>All the currencies elements are into the database in the currencies table. I used the dollar as the main currency with value 1.<br>
+                The conversion is done in the dashboard.js file.
+				<p>In the Dashboard page you can edit a currency value, delete a currency, add a new currency and get live rates to update your database.
+				<p>When you add an new record there is a form validation. When you try to gine an existing name or shortname you get an error notification.<br>
+				If you try to give in the value area something it isnt a number you get an error notification.  
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

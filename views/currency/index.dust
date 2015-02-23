@@ -1,0 +1,75 @@
+<script>
+   $(document).on('change','#currency_from',function(){
+	   selected = $(this).find('option:selected').attr('data-symbol');
+     $('#spanfrom').text(selected); 
+   });
+      $(document).on('change','#currency_to',function(){
+	   selected = $(this).find('option:selected').attr('data-symbol');
+     $('#spanto').text(selected); 
+   });
+</script>
+<style>
+.bluespan {
+	background:lightblue;
+}
+</style>
+<div class="jumbotron">
+<center><h2> Currency Calculator <small>by Antonis Lilis </small> </h2></center>
+</div>
+
+<div class="container">
+<form action='javascript:;' method="post">
+    <div class="row">  
+		<div class="col-md-2">
+		    <h4>Input value</h4>
+			<div class="input-group">
+			<span class="input-group-addon bluespan" id="spanfrom">€</span>
+            <input class="form-control input1" type="number" step="any" name="cur_from_input"  placeholder=""/>
+			</div>
+        </div>	
+        <div class="col-md-3">
+			<h4>Source Currency</h4>
+            <select id="currency_from" class="form-control currency_from" name="currency_from">
+				{#options}
+					<option {@eq key=id value=2} selected {/eq} value='{id}' data-symbol="{c_symbol}">{name} ({shortname})</option>{~n}
+				{/options}
+            </select>
+        </div>
+        <div class="col-md-3">
+			<h4>Target Currency</h4>
+            <select id="currency_to" class="form-control currency_to" name="currency_to">
+				{#options}
+					<option {@eq key=id value=1} selected {/eq} value='{id}' data-symbol="{c_symbol}">{name} ({shortname})</option>{~n}
+				{/options}
+            </select>
+        </div>   
+		<div class="col-md-2">
+			<center><img src="public/images/arrow.png" width="100" class=""/></center>
+		</div>
+		<div class="col-md-2">
+			<h4>Result</h4>
+			 <div class="input-group">
+				<span class="input-group-addon bluespan" id="spanto">$</span>
+				<input class="form-control input2" type="text" name="cur_to_input"  placeholder="" disabled/>
+			</div>
+        </div>    	
+    </div>
+    <div class="row">
+        <div class="col col-md-2">
+            <div class="form-group">
+                <input class="form-control btn btn-primary pull-right convert" type="submit" value="Convert" style="display:none;"/>
+            </div> 
+        </div> 
+    </div>
+</form>
+</div>
+<hr>
+<h2>Notes</h2>
+<div style="background:rgba(0,0,0,0.8); color:white">
+<h4></i>Select currencies type in the input the value you want to convert and you will see the result
+<h4>We only allow <font color="orange">numeric characters</font> in the input field.
+<h4>If you type in the input field automaticaly you see the convertion in the result field
+<h4>If you select an option automatically you see in the span the symbol of this currency
+<h4>i downloaded the arrow image from <a hreh="https://www.iconfinder.com/icons/175632/arrow_icon">this site</a>
+</i></h4>
+</div>

@@ -1,0 +1,81 @@
+<div class="jumbotron">
+<center><h2> Edit Currencies Table </h2></center>
+</div>
+<table class='table table-striped' border='1' cellpadding='10'>
+    <tr> 
+        <th width="50">ID</th> 
+        <th width="250">Name</th> 
+        <th width="100">Shortname</th> 
+        <th width="200">Value</th> 
+                    <th width="100">Edit</th> 
+                    <th width="100">Delete</th> 
+    </tr>
+    {#options}
+    <tr data-id="{id}">
+        <td width="50">{id}</td>
+        <td width="250">{name}</td>
+        <td width="100" class='shortname'>{shortname}</td>
+        <td width="200"><input type="text" name="newValue" class="form-control newValue" placeholder="" value="{value}"/></td>
+        <td width="100"><a href='javascript:;'  class="btn btn-sm btn-warning upd_currency">Update</a></td>
+        <td width="100"><a href='javascript:;'  class="btn btn-sm btn-danger dlt_currency">Delete</a></td>
+    </tr>
+        {/options}
+</table>
+<a href='javascript:;'  class="btn btn-md btn-success koumpi">Get Live Rates</a>
+		
+<center><p><a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addModal">Add new Currency</a></p></center>
+
+
+
+    {!Modal to AddCurrency!}
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+                <h4 class="modal-title" id="myModalLabel">Add new Currency</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Try to give an existing currency name or shortname to see form validation</h4>
+                <form role="form" class="addForm" id="addForm" method="post" action="" parsley-validate>
+                  <div class="form-group">
+                        <label for="addname">Name:</label>
+                        <input type="text" class="form-control addname" id="addname" name="addname" required>
+                        <span id="name-result" class="parsley-error-list"></span>
+                  </div>
+                  <div class="form-group">
+                        <label for="addvalue">Value:</label>
+                        <input type="number" step="any" class="form-control" id="addvalue" name="addvalue" value="0" required>
+                  </div>
+                  <div class="form-group">
+                        <label for="addshortname">Shortname:</label>
+                        <input type="text" class="form-control" id="addshortname" name="addshortname" required>
+                        <span id="shortname-result" class="parsley-error-list"></span>
+                  </div>
+                  <div class="form-group">
+                        <label for="addsymbol">Symbol:</label>
+                        <input type="text" class="form-control" id="addsymbol" name="addsymbol" required>
+                  </div>
+                  <!--<button type="submit" class="btn btn-default addNewCurrency" id="addNewCurrency">Add Currency</button>-->
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary addNewCurrency" id="addNewCurrency">Add Currency</button>
+                {!<a href='javascript:;'  class="btn btn-primary addNewCurrency" id="addNewCurrency">Add Currency</a>!}
+ </form>		
+        </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h2>Notes</h2>
+<div style="background:rgba(0,0,0,0.8); color:white">
+<h4><i><font color="orange">Update </font> Button updates the new value to the database
+<h4><font color="red">Delete </font> Button deletes the record from the database
+<h4><font color="blue">Add new Currency </font>Button creates a modal popup with a form validation. <small>It inserts the new record into the database</small>
+<h4><font color="green">Get live Rates </font>Button gets the new currency values from Google Api. <small>You can update new values by pressing Update Button</small><br>
+the link i get the json and the i edit them is <a href="http://rate-exchange.appspot.com/currency?from=EUR&to=USD"> THIS.</a> <strong>I used US Dollar as the default ratio like Foreign Exchange does</strong>
+<h4>I didn't use a scheduler to update values on every time period (etc 1 hour) cause i will use a free domain and it maybe doesn't have Cron Jobs feature
+<h4>but i know it is the right way</i></h4>
+</div>
